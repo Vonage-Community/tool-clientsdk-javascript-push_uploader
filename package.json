@@ -1,0 +1,27 @@
+{
+  "name": "ios-push-uploader",
+  "version": "0.0.1",
+  "description": "A simple Node app built on Express, instantly up and running.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@vonage/jwt": "^1.3.0",
+    "busboy": "^1.6.0",
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vonage-community/ios-push-uploader"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <title>Vonage Push notification uploader</title>
+</head>
+
+<body>
+  <div class="center">
+    <img src="/vg.svg" height="48px" alt="Vonage logo" />
+
+    <form>
+      <div class="form-group">
+        <label for="appid">Vonage App ID</label>
+        <input name="appid" class="form-control" type="text" required size="45" />
+
+        <label for="privatekey">Vonage Private key</label>
+        <input name="privatekey" class="form-control" type="file" accept=".key" required />
+
+        <label for="certificate">Apple Certificate (.p12) </label>
+        <input name="certificate" class="form-control" type="file" accept=".p12" required />
+
+        <label for="password">Optional Password (Only if you set one in keychain access)</label>
+        <input name="password" class="form-control" type="password"/>
+      </div>
+      <br/>
+      <input type="submit" class="btn btn-primary" value="Upload"/>
+    </form>
+
+    <br/>
+    <p>Status:</p>
+    <span id="status"></span>
+  </div>
+</body>
+
+<script type="module">
+  const uploadForm = document.querySelector("form");
+  const statusEl = document.querySelector("#status");
+
+  const formData = new FormData();
+  const privateKeyFileField = document.querySelector('input[name="privatekey"]');
+  const certFileField = document.querySelector('input[name="certificate"]');
+
+  async function uploadData(url = '') {
+    // add application id and files to form
+    formData.append('appid', uploadForm.elements.appid.value);
+    formData.append('privatekey', privateKeyFileField.files[0]);
+    formData.append('certificate', certFileField.files[0]);
+    formData.append('password', uploadForm.elements.password.value);
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        body: formData
+      });
+      if (!response.ok) {
+        throw new Error('error getting data!');
+      }
+      console.log('response.status: ', response.status)
+      console.log('response: ', response)
+      return response.json();
+    }
+    catch (error) {
+      console.error('Error making call to /upload: ', error);
+      statusEl.textContent = error;
+    }
+  }
+
+  uploadForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    statusEl.textContent = "";
+
+    try {
+      const status = await uploadData("/upload");
+      console.log('status: ', status);
+      if (status.code !== 200) {
+        statusEl.style.color = 'red';
+        statusEl.textContent = `Code: ${status.code} Message: ${status.message}`;
+      } else {
+        statusEl.style.color = 'green';
+        statusEl.textContent = `Code: ${status.code} Message: ${status.message}`;
+      }
+    }
+    catch (error) {
+      console.error('error: ', error);
+      statusEl.textContent = error;
+
+    }
+  });
+</script>
+
+</html>
