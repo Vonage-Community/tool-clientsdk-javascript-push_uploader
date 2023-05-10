@@ -105,8 +105,8 @@ You can join the Vonage Community Slack for any questions you might have:
 
 Alternatively, you can raise an issue on the project.
 
-[beginner]:https://github.com/search?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3Abeginner+label%3Ahelp-wanted+user%3Anexmo-community+sort%3Acomments-desc
-[help-wanted]:https://github.com/search?q=is%3Aopen+is%3Aissue+label%3Ahelp-wanted+user%3Anexmo-community+sort%3Acomments-desc+-label%3Abeginner
+[beginner]:https://github.com/search?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3Abeginner+label%3Ahelp-wanted+user%3Avonage-community+sort%3Acomments-desc
+[help-wanted]:https://github.com/search?q=is%3Aopen+is%3Aissue+label%3Ahelp-wanted+user%3Avonage-community+sort%3Acomments-desc+-label%3Abeginner
 
 [contribadge]: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat "Contributions Welcome"
 
@@ -115,9 +115,9 @@ Alternatively, you can raise an issue on the project.
 [license]: LICENSE "MIT License"
 [pullrequest]: PULL_REQUEST_TEMPLATE.md "Pull Request template"
 
-[community]: https://developer.nexmo.com/community "Vonage Community"
-[signup]: https://dashboard.nexmo.com/sign-up?utm_source=DEV_REL&utm_medium=github&utm_campaign=lukeocodes
-[slack]: https://developer.nexmo.com/community/slack "Vonage Community Slack"
+[community]: https://developer.vonage.com/community "Vonage Community"
+[signup]: https://dashboard.nexmo.com/sign-up?utm_source=DEV_REL&utm_medium=github&utm_campaign=
+[slack]: https://developer.vonage.com/community/slack "Vonage Community Slack"
 [twitter]: https://twitter.com/VonageDev "VonageDev on Twitter"
 
 [bugreport]: ./../../issues/new?assignees=&labels=&template=bug_report.md&title= "Bug Report Template"
