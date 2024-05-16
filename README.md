@@ -1,5 +1,7 @@
 # iOS Push Notification Certificate Uploader
 
+## ❗❗❗ **This repo is now deprecated. You can now upload your credentials on the [Vonage API Dashboard](https://dashboard.nexmo.com) via your Vonage Applications's settings page**
+
 This project is an online alternative for uploading your iOS push certificates to Vonage. You can learn more about it in the [push notifications guide](https://developer.vonage.com/vonage-client-sdk/set-up-push-notifications/ios#upload-your-certificate).
 
 ## Welcome to Vonage
